@@ -1,0 +1,56 @@
+git fetch <remote> <rbranch>:<lbranch> 
+
+To delete a branch from local:
+git branch -d master-nps-survey
+
+To delete a branch from remote:
+git push origin --delete <branch_name>
+
+
+http://voidcanvas.com/cherry-pick-format-patch/
+<b>To move relevant changes from obee to obee-cn</b>
+------------------------------------------------------------
+
+git log --author="Aaron"
+
+git --git-dir=/c/xampp/htdocs/obee/.git format-patch -1 234e781df4df41d (the commit id that you wnat to move).
+output: 0001-bulk-remove-feature-for-admin-user-management.patch
+
+For mulitple commits and not creating multiple patch files
+-------------------------------------------------------------
+git format-patch -x --stdout > patch-ddmmyyy.patch
+e.g:- git --git-dir=/c/xampp/htdocs/obee/.git format-patch -6 --stdout > customer_alerts.patch
+
+git am 0001-bulk-remove-feature-for-admin-user-management.patch
+
+git --git-dir=/c/xampp/htdocs/obee/.git format-patch -1 3ffce7493d553d5c (the commit id that you wnat to move).
+output: 0001-admin-user-management-bulk-remove-review-changes.patch
+
+git am 0001-admin-user-management-bulk-remove-review-changes.patch
+
+Note: Patch files gets created inside the project
+
+
+create new branch from old commit
+----------------------------------
+https://stackoverflow.com/questions/7167645/how-do-i-create-a-new-git-branch-from-an-old-commit
+git checkout -b justin a9c146a09505837ec03b   
+create the new branch and check it out
+
+git branch justin a9c146a09505837ec03b
+creates the branch without checking it out.
+
+
+for checking Old jira commits
+--------------------------------
+1. check for the commit one above the rollback commit from git project.
+2. create a new branch from the above and checkout
+3. Now on master branch, go the rollback commit 
+4. compare both.
+
+
+
+Reset git stash apply
+---------------------
+git reset --hard
+https://stackoverflow.com/questions/1020132/how-to-reverse-apply-a-stash#answer-1020442

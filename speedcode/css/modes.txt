@@ -1,0 +1,3 @@
+Two Modes:
+1. Strict mode.
+2. Quirks mode.

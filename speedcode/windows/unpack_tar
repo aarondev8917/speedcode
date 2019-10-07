@@ -1,0 +1,12 @@
+https://wiki.haskell.org/How_to_unpack_a_tar_file_in_Windows
+
+If you have MinGW/MSYS or Cygwin installed, you can use the tar command to unpack such files:
+ tar xvf  <.tar file>
+ tar xzvf <.tar.gz file>
+ tar xjvf <.tar.bz2 file>
+(can be used for linux as well)
+
+
+To extract all files in a folder
+tar xvf support-2015-10-19.tar -C <directory>
+directory needs to be created first

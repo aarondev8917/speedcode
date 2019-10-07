@@ -1,0 +1,13 @@
+phpunit tests/functional/Controller/HomeControllerTest.php 
+
+
+To check PHPUnit version in Laravel 5.1
+-------------------------------------------
+ vendor/phpunit/phpunit/phpunit --version
+(check if the above function is using the correct phpunit version)
+
+
+
+To install PHPUnit
+----------------------
+https://phpunit.de/manual/current/en/installation.html#installation.phar.verification

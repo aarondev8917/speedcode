@@ -1,0 +1,4 @@
+Using PUT method with PHP cUrl Library - https://stackoverflow.com/questions/3958226/using-put-method-with-php-curl-library
+/** use a max of 256KB of RAM before going to disk */
+$fp = fopen('php://temp/maxmemory:256000', 'w');
+The upside is no disk IO so it should be faster and less load on your server.

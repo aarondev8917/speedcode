@@ -1,0 +1,15 @@
+http://superuser.com/questions/1027790/docker-on-conemu
+
+New version automatically includes it.
+
+
+
+
+
+ERROR:
+An error occurred trying to connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.24/info: open //./pipe/docker_engine: The system cannot find the file specified.
+
+Solution:
+https://github.com/docker/docker/issues/22338   (thaJeztah comment)
+- docker-machine start default
+- docker-machine env defaultv

@@ -1,0 +1,8 @@
+http://www.thegeekstuff.com/2012/07/crontab-log
+
+tail -f /var/log/cron
+- Timestamp 
+- Hostname 
+- cron deamon name (PID)
+- Username 
+- CMD (/usr/bin/php /var/www/html...)(make sure /usr/bin is present)

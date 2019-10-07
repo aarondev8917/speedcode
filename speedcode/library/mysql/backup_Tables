@@ -1,0 +1,13 @@
+https://dba.stackexchange.com/questions/9306/how-do-you-mysqldump-specific-tables
+mysqldump -u... -p... mydb t1 t2 t3 > mydb_tables.sql
+
+mysqldump -h gpx-livechat3.myorderbox.com -urc_writer -p support_risky product_keys reasons > /var/tmp/reasons_product_keys_25_05_2017.sql
+
+
+https://stackoverflow.com/questions/2989724/how-to-mysqldump-remote-db-from-local-machine
+mysqldump -P 3310 -h localhost -u mysql_user -p database_name table_name
+
+WITHOUT data
+--------------
+http://stackoverflow.com/questions/6175473/mysql-export-schema-without-data
+mysqldump -u root -p --no-data dbname > schema.sql

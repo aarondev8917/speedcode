@@ -1,0 +1,275 @@
+http://www.developmentalmadness.com/2016/03/05/docker-permanently-mount-a-virtualbox-shared-folder/
+(Steps for mounting the shared folder)
+1. Create a shared folder in Oracle VirtualBox
+2. docker-machine ssh default
+3. sudo mkdir -p /mnt/src
+4. sudo mount -t vboxsf -o defaults,uid=`id -u docker`,gid=`id -g docker` src /mnt/src
+     src (before /mnt/src) - should be the name given in the shared folder of virtualbox
+    (Add  folder to be shared:-
+      Folder:- C:/ (select from drop-down)
+       Name: -src (easy to remember))
+
+The above mounting will work, but as soon as you restart your machine the changes are lost. So following are ways to make it permanent.
+1. docker-machine ssh default
+2. sudo touch /mnt/sda1/var/lib/boot2docker/bootlocal.sh
+
+Note:-
+For Making it permanent
+- use 'vi' as text editor
+- vim, nano, cat did not work.
+touch just used to create the file
+
+3. sudo vi /mnt/sda1/var/lib/boot2docker/bootlocal.sh
+      Add the following lines to the above file:
+        - sudo mkdir -p /mnt/src
+        - sudo mount -t vboxsf -o defaults,uid=`id -u docker`,gid=`id -g docker` src /mnt/src
+             src (before /mnt/src) - should be the name given in the shared folder of virtualbox
+4. exit
+5. docker-machine restart default
+6. docker-machine ssh default
+7. ls /mnt/src
+
+
+
+http://stackoverflow.com/questions/23439126/how-to-mount-host-directory-in-docker-container
+2 succesive mounts
+Steps to get started with Docker image.
+1. Get the Docker image file. (copy from downloads folder to C:/) (because C is the shared folder)
+2. docker load --input /mnt/src/support-2015-10-19.tar    (.tar file is the docker image file)(supportserver-05052017.tar)
+3. docker images (to check the image)
+4. docker run -P -d --name supportserver -p 8080:80 -i -t -v /mnt/src:/var/www 730e4c7ec7bb     (730e4c7ec7bb is the Image ID of above docker image)(5f8c0b07b3f5)
+(/mnt/src: is the shared folder setup in docker)
+(/var/www - the name you want to give mounted folder)
+4. exit
+5. docker-machine restart
+6. docker-machine ssh default
+7. docker inspect 001503294f8a (001503294f8a - container ID)  
+     Lists the JSON format file with all the relevant details.
+
+
+Steps to start a container
+1. docker start 001503294f8a   (001503294f8a - container id)
+2. docker attach 001503294f8a
+3. start web server, mysql server.
+
+docker run -d --name suppweb -p 8080:80 -v /c/xampp/htdocs:/var/www/html/ php:apache
+
+
+docker help (list all commands)
+docker help load (list commands and options for docker load)
+docker-machine help (docker-machine is a utility)
+docker ps  (lists all active running containers)
+docker ps -a (list all exited containers)
+
+Revmoes container
+docker rm `docker ps --no-trunc -aq` (Removes all exited containers)
+
+Removes Images
+docker rmi  <IMAGE ID> <IMAGEID>
+
+
+
+
+
+http://stackoverflow.com/questions/18861834/mounting-multiple-volumes-on-a-docker-container
+
+docker run -it -d --name supportserver -p 8080:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html --add-host="dockerhost:172.16.173.245" 5f8c0b07b3f5
+docker run -it -d --name supportserver -p 8080:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html --add-host="dockerhost:172.16.173.245" 730e4c7ec7bb (5f8c0b07b3f5)
+docker run -it -d --name supportserver -p 8080:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html --net=host 08733fe0b105
+
+docker run -it -d --name supportserver -p 8080:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html 08733fe0b105
+
+FOR OLD HELPDESK
+-----------------
+docker run -it -d --name oldhelpdesk -p 80:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html --add-host="dockerhost:172.16.173.245" 730e4c7ec7bb
+yum install pgsql
+
+/etc/php.ini
+-------------------
+enable short tags
+
+/etc/httpd/conf/httpd.conf
+---------------------------
+# conf for HD RELOADED
+<VirtualHost *:80>
+    ServerAdmin aaron.l@endurance.com
+    DocumentRoot /var/www/html/helpdesk
+    ServerName helpdesk.corp.endurance.com
+    ServerAlias helpdesk
+</VirtualHost>
+
+
+
+08733fe0b105 - image id (keeps changing if you commit)
+172.16.173.245 - Host ip (windows machine - get ip by ipconfig /all)
+
+
+To figure CENTOS version on support server
+1. cat /etc/centos-release
+   cat /etc/redhat-release
+2. yum install vim-enhanced -y
+
+
+
+Symbolic Link
+-------------------
+ln -s /var/www/htdocs /var/www/html
+ln: creating symbolic link `/var/www/html' to `/var/www/xampp/htdocs': Read-only file system
+
+Windows
+--------
+mklink C:\xampp\html C:\xampp\htdocs
+
+
+For database connectivity
+----------------------------
+https://jhipster.github.io/tips/020_tip_using_docker_containers_as_localhost_on_mac_and_windows.html
+
+1. docker-machine stop default (If you open oracle virtaulbox manager, then the virtual machine will be powered off)
+2. Open Settings -> Network -> Adapter1 -> Advanced -> Port Forwarding
+
+
+
+To store the latest changes to the container and save in image
+-----------------------------------------------------------------
+docker commit 34bbe5e76656 support_server:23022107
+note: docker commit CONTAINER-ID 
+
+docker images - to see the changes from commit
+docker rmi images - to delete the image
+
+
+IP
+---
+docker-machine ip
+
+
+To connect to localhost
+-----------------------
+
+https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html
+
+
+
+
+Export Docker container to a .tar file
+-----------------------------------------
+docker export --output="support-15-03-2017.tar" supportserver
+
+
+
+
+Export:
+
+  docker commit <CONTAINER ID> <IMAGE-NAME>
+  
+    e.g. (Oracle XE image)
+      docker commit d1db2b oracle-xe 
+    
+  docker save IMAGE-NAME > <IMAGE-NAME>.tar
+  
+    e.g.
+      docker save oracle-xe > /Users/doe/docker/oracle-xe-image.tar
+
+-- BACKUP ON GOOGLE DRIVE IN CASE OF LOCAL CRASH.
+
+
+https://codepad.co/snippet/hh8FztUc
+#for not running docker, use save:
+docker save <dockernameortag> | gzip > mycontainer.tgz
+
+#for running or paused docker, use export:
+docker export <dockernameortag> | gzip > mycontainer.tgz
+
+#load
+gunzip -c mycontainer.tgz | docker load
+-- -- -- -- --
+
+Import:
+
+  docker load < <IMAGE-NAME>.tar
+  
+  e.g.
+    docker load < /Users/doe/docker/oracle-xe-image.tar
+ubuntu-14-2017-03-20
+C:\Users\aaron.l.EIGI\Downloads
+
+
+CHANGE THE REPO NAME OF DOCKER IMAGE
+-----------------------------------------
+docker tag 3f3fe646afbb ubuntu
+
+
+
+VVVVVI
+-------
+docker run -it -v <doc_root>:/var/www -p 8181:80 <image_id> /bin/bash
+If DOCKER IMPORT is used, run the following command:
+docker run -it -d --name ubuntu -p 8080:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html --add-host="dockerhost:172.16.173.245" 3f3fe646afbb /bin/bash
+If DOCKER LOAD is used, run foll command:
+docker run -it -d --name supportserver -p 8080:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html --add-host="dockerhost:172.16.173.245" 5f8c0b07b3f5
+
+docker run -it -d --name ubpciv1 -p 8080:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html --add-host="dockerhost:172.16.173.245" f57f08212785
+
+docker run -it -d --name rccrmubuntu -p 8080:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html --add-host="dockerhost:172.16.173.245" e643d4b3eb23 /bin/bash
+
+explanation:
+https://github.com/moby/moby/issues/1826
+
+
+RUN THE CONTAINER
+-------------------
+docker exec -it ubuntu bash
+
+
+
+
+UBUNTU
+-------
+install php curl
+---------------
+apt-get install php7.0-curl
+
+
+
+
+CENTOS 7 PHP 72
+---------------
+docker run --privileged -it -d --name centos7php72 -p 8080:80 -v /mnt/src/xampp:/var/www -v /mnt/src/xampp/htdocs:/var/www/html -v /sys/fs/cgroup:/sys/fs/cgroup --add-host="dockerhost:172.16.173.245" 0d4c6a15c2c3 /usr/sbin/init
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Used while upgrading to drupal 8
+------------------------------
+docker-compose.yml
+--------------------
+web:
+    image: nginx:alpine
+    ports:
+        - "4000:80"
+    volumes:
+        - ./config/kb.nginx.vh.conf:/xampp/default.conf
+        - ./src:/xampp/htdocs/obox-kb
+    links:
+        - php
+php:
+    build: .
+    volumes:
+        - ./src:/xampp/htdocs/obox-kb
+    ports:
+        - "9000:9000"
+    command: php-fpm

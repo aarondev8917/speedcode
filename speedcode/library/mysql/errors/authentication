@@ -1,0 +1,8 @@
+http://stackoverflow.com/questions/1575807/cannot-connect-to-mysql-4-1-using-old-authentication
+
+1. SHOW VARIABLES LIKE 'old_passwords'
+If ON,
+2. SET old_passwords = 0;
+3. SELECT `User`, `Host`, Length(`Password`) FROM mysql.user (will return length 16 for old passwords , length 41 for new passwords)
+4. SET PASSWORD FOR 'User'@'Host'=PASSWORD('yourpassword');
+5. FLUSH Privileges

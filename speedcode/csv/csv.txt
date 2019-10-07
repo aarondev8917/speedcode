@@ -1,0 +1,11 @@
+Convert Single column to csv
+1. If there is only column in google sheet, and you select download as csv, then the downloaded csv file will consist only of that one column without any commas.
+2. To solve this, copy paste the column to be converted in csv into another sheet
+3. to put inverted commas, formula : =CHAR(34) & A1 & CHAR(34)
+4. transpose from columns to rows.
+5. Download to csv.
+
+
+
+https://stackoverflow.com/questions/356578/how-to-output-mysql-query-results-in-csv-format
+408 votes - mysql your_database --password=foo < my_requests.sql > out.csv

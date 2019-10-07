@@ -1,0 +1,13 @@
+https://dba.stackexchange.com/questions/20479/how-to-resolve-too-many-connections-and-fatal-error-in-mysql-running-on-vps
+
+SELECT user,host FROM mysql.user
+WHERE super_priv='Y' AND
+CONCAT(user,'@',host) <> 'root@localhost';
+
+
+UPDATE mysql.user SET super_priv='N'
+WHERE super_priv='Y' AND
+CONCAT(user,'@',host) <> 'root@localhost';
+FLUSH PRIVILEGES;
+(Basically keeps only 1 user with super privilege)
+

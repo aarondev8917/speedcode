@@ -1,0 +1,5 @@
+1. USe nano
+2. nano /etc/php.ini
+3. Change short_open_tags = Off to short_open_tags = On
+4. ^ - Ctrl + o - to save the file
+5. Restart httpd server

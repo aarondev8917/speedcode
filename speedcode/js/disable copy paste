@@ -1,0 +1,3 @@
+    $('#credit_amount,#confirm_credit_amount').bind("cut copy paste", function (e) {
+        e.preventDefault();
+    });

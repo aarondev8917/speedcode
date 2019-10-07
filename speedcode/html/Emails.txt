@@ -1,0 +1,11 @@
+Headers
+--------
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+https://www.w3.org/Protocols/rfc1341/5_Content-Transfer-Encoding.html
+tags: http://stackoverflow.com/questions/tagged/quoted-printable
+
+http://stackoverflow.com/questions/34297274/imap-fetchbody-html-with-strange-chars
+quoted-printable will make HTML appear in weird characters like =3D
+

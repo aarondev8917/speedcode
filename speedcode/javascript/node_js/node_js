@@ -1,0 +1,16 @@
+event-driven, non-blocking I/O model 
+
+
+ npm install --save socket.io
+
+
+To start a node server
+1. node <path to the server js file>
+
+Things to know abt require:
+(http://stackoverflow.com/questions/9901082/what-is-this-javascript-require)
+1. require() is built into Node.js to load modules 
+2. require returns a value, depending on what the module exposes using exports or module.exports
+
+AMD - Asynchronous module definition
+(https://en.wikipedia.org/wiki/Asynchronous_module_definition)

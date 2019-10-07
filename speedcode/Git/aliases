@@ -1,0 +1,5 @@
+
+TROUBLESHOOTING:
+/usr/bin/vi: /usr/bin/vi: cannot execute binary file error: There was a problem with the editor 'vi'. Not committing merge; use 'git commit' to complete the merge.
+A: https://github.com/VundleVim/Vundle.vim/issues/167
+    git config --global core.editor /usr/bin/vim

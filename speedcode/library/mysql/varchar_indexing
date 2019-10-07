@@ -1,0 +1,11 @@
+http://stackoverflow.com/questions/1898453/does-index-on-varchar-make-performance-difference
+MYSQL limits the amount of space set aside for indexes.
+MYISAM - 1000 bytes
+InnoDB - 767 bytes.
+
+Always use HASHSIng if using varchar as unique.
+- create a separate column with the unique hash and store it.
+
+http://stackoverflow.com/questions/14033378/make-text-column-as-unique-key
+http://stackoverflow.com/questions/4744617/mysql-how-to-alter-varchar255-unique-column-to-unique-text-not-null
+http://stackoverflow.com/questions/614476/storing-sha1-hash-values-in-mysql (good)

@@ -1,0 +1,86 @@
+vagrant init
+
+config.vm.box = "ubuntu/trusty64"
+
+config.vm.network "forwarded_port", guest: 80, host: 8080
+
+config.vm.synced_folder "C:/xampp/htdocs/ccmessenger-public", "/var/www/html/messenger-public"
+config.vm.synced_folder "C:/xampp/ccmessenger", "/var/www/messenger"
+config.vm.synced_folder "C:/xampp/htdocs/karavel", "/var/www/karavel"
+
+vagrant up
+vagrant ssh
+
+
+
+
+
+
+
+$ yum install httpd
+$ yum install php-mysql
+
+$ service httpd start
+
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-centos-6
+CENTOS:
+$ yum install vim-enhanced
+
+$ vim /etc/httpd/conf/httpd.conf
+# conf for HD RELOADED
+<VirtualHost *:80>
+    ServerAdmin pratik.j@directi.com
+    DocumentRoot /var/www/html/hd
+    ServerName hd.internal.directi.com
+    ServerAlias hd
+#    Redirect permanent / https://hd.internal.directi.com/
+#    ErrorLog logs/dummy-host.example.com-error_log
+#    CustomLog logs/dummy-host.example.com-access_log common
+</VirtualHost>
+
+
+
+Starting httpd: Warning: DocumentRoot [/var/www/html/hd] does not exist
+$ echo "0" >/selinux/enforce
+(http://stackoverflow.com/questions/3948038/apache-says-my-documentroot-directory-doesnt-exist)
+
+
+Listen 8080 (httpd.conf)
+
+UBUNTU
+https://www.digitalocean.com/community/tutorials/how-to-configure-the-apache-web-server-on-an-ubuntu-or-debian-vps
+$ cd /etc/apache2/sites-available/000-default.conf
+
+CENTOS, FEDORA
+vim /etc/httpd/conf/httpd.conf
+
+
+
+check httpd logs if not resolving
+
+
+
+
+--------------------------------------------------------------------------------------------------
+
+To get the list of available vagrant commands: 
+vagrant list-commands
+
+
+
+---------------------------------------------------------------------------------------------------
+
+
+TO UPDATE HOSTS FILE 
+(http://stackoverflow.com/questions/16624905/adding-etc-hosts-entry-to-host-machine-on-vagrant-up)
+(https://github.com/cogitatio/vagrant-hostsupdater)
+Used steps: Usage, Passwordless sudo
+ vagrant plugin install vagrant-hostsupdater    
+
+
+
+
+vim no highlighting
+http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting
+:noh

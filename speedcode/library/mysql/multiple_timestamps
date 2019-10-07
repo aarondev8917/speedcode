@@ -1,0 +1,4 @@
+http://stackoverflow.com/questions/4851672/one-mysql-table-with-multiple-timestamp-columns
+MySQL versions before 5.6.1 would not let two TIMESTAMP columns in the same table, unless as you rightly noted with out defaults and allowing null.
+
+MySQL 5.6.+ allows two or more TIMESTAMP columns in a table.

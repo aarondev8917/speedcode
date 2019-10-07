@@ -1,0 +1,24 @@
+https://centos.pkgs.org/7/remi-x86_64/php72-php-pecl-xdebug-2.6.0-1.el7.remi.x86_64.rpm.html
+
+
+# yum --enablerepo=remi install php72-php-pecl-xdebug
+
+
+
+
+https://medium.com/@pavlakis/setting-up-xdebug-with-docker-and-php-7-2-f5a6553cb956 (for ubuntu)
+
+xdebug.remote_enable=1
+xdebug.remote_port=9099
+xdebug.remote_autostart=1
+xdebug.remote_connect_back=0
+xdebug.idekey=netbeans-xdebug
+xdebug.remote_host=172.16.173.245
+
+
+Go To Tools -> options -> PHP -> debugger port (9099)
+
+
+
+
+check for phpinfo in the file

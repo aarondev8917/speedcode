@@ -1,0 +1,11 @@
+<script type="text/javascript">
+    $(document.body).append($('<form id="logout-form" method="POST" action="/logout/"></form>'));
+    $(document.body).on("click", ".logout-link", function (e) {
+        var $form = $("#logout-form");
+        var url = $(e.target).attr("href");
+        e.preventDefault();
+        $form.attr("action", url);
+        $form.submit();
+    });
+
+</script>

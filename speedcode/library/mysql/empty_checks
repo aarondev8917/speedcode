@@ -1,0 +1,4 @@
+For checking empty string in varchar
+--------------------------------------
+{column_name} > ''
+https://stackoverflow.com/questions/2327029/checking-for-an-empty-field-with-mysql

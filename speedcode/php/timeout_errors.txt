@@ -1,0 +1,8 @@
+ini_set('mssql.timeout', 3600);
+ini_set('mysql.wait_timeout', 3600);
+
+
+timeout errrors could arise if something is wrong with connection.
+for example, port number is not entered in the connection or some other credentials got changed.
+
+Check using CLI if everything works fine.

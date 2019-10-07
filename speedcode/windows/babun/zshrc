@@ -1,0 +1,32 @@
+Linux: sudo apt-get install sshpass
+Windows: pact install sshpass
+The above wont work as "sshpass is not available as cygwin package" 
+(http://stackoverflow.com/questions/37243087/how-to-install-sshpass-on-windows-through-cygwin)
+
+1. curl -LO http://downloads.sourceforge.net/sshpass/sshpass-1.06.tar.gz
+2. md5sum sshpass-1.06.tar.gz
+3. tar xvf sshpass-1.06.tar.gz
+4. cd sshpass-1.06.tar.gz
+5. ./configure
+6. make
+  - If you face issues over here, rename README.md to README (https://github.com/thomasvs/morituri/issues/52)
+    -- mv README.md README
+7. make install
+
+
+alias bi="ssh root@bi.corp.endurance.com"
+alias support="ssh t-auto-reader@support.corp.endurance.com"
+alias cybertron="ssh aaron.l@cybertron"
+alias tiger="ssh root@tiger.corp.endurance.com"
+
+
+support='sshpass -p 'password' ssh t-auto-reader@apac-support.corp.endurance.com'
+
+https://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/
+https://stackoverflow.com/questions/19302572/how-to-put-sshpass-command-inside-a-bash-script
+
+sshpass -p 'password' ssh -o StrictHostKeyChecking=no t-auto-reader@apac-support-new.corp.endurance.com ("-o" being the flag that tells ssh that your are going to use an option). This accepts any incoming RSA key from your ssh connection, even if the key is not in the "known host" list.)
+
+LARAVEL UNIT TESTING ON WINDOWS
+--------------------------------
+alias phpunit="/cygdrive/c/xampp/php/php C:/xampp/php/phpunit"

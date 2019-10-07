@@ -1,0 +1,7 @@
+Touch
+https://en.wikipedia.org/wiki/Touch_(Unix)
+
+- Used to update access date / modification date of a file or directory
+- doesn't modify contents of a file
+- if file doesnt exist it is created with 0 length.
+

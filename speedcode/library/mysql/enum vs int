@@ -1,0 +1,3 @@
+enum vs int : indexing performed is faster in case of ENUM
+because ENUM says "It's one of these 13 values" whereas INT is saying "It could be any integer."
+http://stackoverflow.com/questions/113609/why-is-enum-better-than-int

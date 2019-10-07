@@ -1,0 +1,32 @@
+cat .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# User specific aliases and functions
+alias localhost='mysql -hlocalhost -uroot -pqwedsa dbname -A'
+(alias is useful for connecting to db)
+
+alias support='sshpass -p @ut0b0t5 ssh t-auto-reader@support'
+
+- Required a restart after a .bashrc file is changed
+
+
+
+
+
+
+To see the list if alias:
+------------------------
+alias
+
+
+Reload .bashrc without logging out and back in?
+-----------------------------------------------
+http://stackoverflow.com/questions/2518127/how-do-i-reload-bashrc-without-logging-out-and-back-in
+
+source ~/.bashrc
+OR 
+. ~/.bashrc

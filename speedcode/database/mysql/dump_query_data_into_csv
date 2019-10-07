@@ -1,0 +1,23 @@
+// Query results to be dumped into csv when you do not have remote access.
+
+
+STEP 1: XAMPP SHELL (OR wherever mysql opens up)
+aaron.l@IMLWRCAARONL C:\xampp\htdocs\risky
+# mysql -h172.27.183.42 -P7008 -urc_reader -p"" support_risky < temp.sql > tr_mb_resellers.tsv
+//https://stackoverflow.com/questions/356578/how-to-output-mysql-query-results-in-csv-format  (2nd answer)
+
+
+STEP 2: BABUN
+- babun has sed command utility in-built
+   - windows - sed 's/\t/,/g' input_file > output_file
+   - MAC - sed 's/ /,/g' input_file > output_file
+   //https://stackoverflow.com/questions/3509332/how-to-convert-a-tab-separated-file-into-comma-separated-file
+
+WINDOWS
+- You can use powershell
+  get-content somefile.txt | %{$_ -replace "expression","replace"}    
+  // above line can used in place of sed for windows.
+  // https://stackoverflow.com/questions/127318/is-there-any-sed-like-utility-for-cmd-exe
+
+
+

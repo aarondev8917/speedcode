@@ -1,0 +1,31 @@
+Troubleshooting
+
+1. [root@msprcreporttool ~]# httpd -S
+  (gives virtualhost configuration)
+2. [root@msprcreporttool ~]# vim /etc/httpd/conf.d/ssl.conf
+3. [root@msprcreporttool ~]# httpd -t
+4. [root@msprcreporttool ~]# /etc/init.d/httpd status
+5. [root@msprcreporttool ~]# /etc/init.d/httpd
+6. [root@msprcreporttool ~]# /etc/init.d/httpd graceful
+7. [root@msprcreporttool ~]# /etc/init.d/httpd
+8. [root@msprcreporttool ~]# /etc/init.d/httpd status
+9. [root@msprcreporttool ~]# mailq
+10.[root@msprcreporttool ~]# man mailq
+11.[root@msprcreporttool ~]# mailq -qIu7VHU3Nl006218
+12.[root@msprcreporttool ~]# sendmail -qIu7VHU3Nl006218
+13. [root@msprcreporttool ~]# /etc/init.d/httpd graceful
+14. [root@msprcreporttool ~]# tail -f /var/log/mail
+15. [root@msprcreporttool ~]# tail -f /var/log/maillog
+16. [root@msprcreporttool ~]# /etc/init.d/sendmail restart
+17. [root@msprcreporttool ~]# tail -f /var/log/maillog
+18. [root@msprcreporttool ~]# mailq
+19. [root@msprcreporttool ~]# tail -f /var/log/maillog
+20. [root@msprcreporttool ~]# mailq
+21. [root@msprcreporttool ~]# /etc/init.d/sendmail status
+22. [root@msprcreporttool ~]# w
+
+
+Show the sendmail mail queue
+------------------------------
+(https://www.electrictoolbox.com/show-sendmail-mail-queue/)
+sendmail -bp

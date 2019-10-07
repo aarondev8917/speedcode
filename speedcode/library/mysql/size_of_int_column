@@ -1,0 +1,12 @@
+http://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes
+
+AN INT will always be 4 bytes no matter the length specified.
+- TINYINT = 1 byte (8 bit)
+- SMALLINT = 2 bytes (16 bit)
+- MEDIUMINT = 3 bytes (24 bit)
+- INT = 4 bytes (32 bit)
+- BIGINT = 8 bytes (64 bit).
+
+The length just specifies how many characters to display when selecting data with the mysql command line client.
+maximum value will be 2147483647 (Signed) 2^32 / 2
+or 4294967295 (Unsigned) 2^32

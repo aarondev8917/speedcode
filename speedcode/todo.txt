@@ -1,0 +1,8 @@
+1. javascript quirks
+2. docker
+    hosts os - original os installed on your computer/machine
+    guest os - other os installed on your computer /machine
+    read up on kernal space, user space
+    http://unix.stackexchange.com/questions/87625/what-is-difference-between-user-space-and-kernel-space
+
+3. event-driven, non-blocking I/O model 

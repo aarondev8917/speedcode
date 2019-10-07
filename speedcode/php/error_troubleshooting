@@ -1,0 +1,12 @@
+1.
+function died() {
+    var_dump(error_get_last());
+}
+
+register_shutdown_function('died');
+
+
+
+2.
+error_reporting(E_ALL ^ E_NOTICE);
+ini_set('display_errors', 1);

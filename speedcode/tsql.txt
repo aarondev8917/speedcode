@@ -1,0 +1,12 @@
+tsql -H xxxx -pxxx -U xxxxx -Pxxxxx
+locale is "en_US.UTF-8"
+locale charset is "UTF-8"
+using default charset "UTF-8"
+1> <query>;
+2>go
+
+if database is not selected.
+1> use Orderbox;
+2> go
+1> <query>;
+2> go

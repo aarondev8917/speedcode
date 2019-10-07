@@ -1,0 +1,17 @@
+EHLO mailersportal.smtp.com
+AUTH LOGIN
+
+cHJpdGVzaC5iQHJlc2VsbGVyY2x1Yi5jb20= (SMTP username - base64 encoded)
+NzUzOTUxcT8=  (SMTP password - base64 encoded)
+
+
+ehlo aaron.l@endurance.com
+mail from:<aaron.l@endurance.com>
+rcpt to:<aaron.l@endurance.com>
+data
+From: aaron.l@endurance.com
+Subject: test mail from command line
+
+this is test number 1
+sent from linux box
+.

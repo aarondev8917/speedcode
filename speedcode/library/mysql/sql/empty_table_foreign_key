@@ -1,0 +1,4 @@
+steps:
+1. SET FOREIGN_KEY_CHECKS=0;
+2. truncate table (this will empty data in table)
+3. insert data using mysql restore or any other means

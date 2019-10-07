@@ -1,0 +1,12 @@
+To check in all projects use the foll:
+grep -rn 'xampp' -e "<pattern>”
+E.g:- grep -rn 'xampp' -e "172.25.210.19"
+
+For more: https://stackoverflow.com/questions/16956810/how-do-i-find-all-files-containing-specific-text-on-linux
+
+
+
+
+NOTE: IP got changed to 172.27.160.61
+Mysql host =172.27.160.61
+xdebug.remote_host=172.27.160.61 (had to figure this out)

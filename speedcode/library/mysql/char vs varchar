@@ -1,0 +1,56 @@
+https://dev.mysql.com/doc/refman/5.7/en/char.html
+
+Value	CHAR(4)	Storage Required	VARCHAR(4)	Storage Required
+''	'    '	4 bytes	''	1 byte
+'ab'	'ab  '	4 bytes	'ab'	3 bytes
+'abcd'	'abcd'	4 bytes	'abcd'	5 bytes
+'abcdefgh'	'abcd'	4 bytes	'abcd'	5 bytes
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+mysql> CREATE TABLE vc (v VARCHAR(4), c CHAR(4));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO vc VALUES ('ab  ', 'ab  ');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT CONCAT('(', v, ')'), CONCAT('(', c, ')') FROM vc;
++---------------------+---------------------+
+| CONCAT('(', v, ')') | CONCAT('(', c, ')') |
++---------------------+---------------------+
+| (ab  )              | (ab)                |
++---------------------+---------------------+
+1 row in set (0.06 sec)
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+mysql> CREATE TABLE names (myname CHAR(10));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO names VALUES ('Monty');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT myname = 'Monty', myname = 'Monty  ' FROM names;
++------------------+--------------------+
+| myname = 'Monty' | myname = 'Monty  ' |
++------------------+--------------------+
+|                1 |                  1 |
++------------------+--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT myname LIKE 'Monty', myname LIKE 'Monty  ' FROM names;
++---------------------+-----------------------+
+| myname LIKE 'Monty' | myname LIKE 'Monty  ' |
++---------------------+-----------------------+
+|                   1 |                     0 |
++---------------------+-----------------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+https://stackoverflow.com/questions/1885630/whats-the-difference-between-varchar-and-chars

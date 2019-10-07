@@ -1,0 +1,7 @@
+http://stackoverflow.com/questions/32978554/how-to-configure-xampp-to-use-with-mssql
+1. Download from SQLSRV32.EXE https://www.microsoft.com/en-us/download/details.aspx?id=20098
+2. put the php_pdo_sqlsrv_56_ts.dll and php_sqlsrv_56_ts.dll on ext folder and finally register those extension on php.ini, like this:
+extension=php_sqlsrv_56_ts.dl
+extension=php_pdo_sqlsrv_56_ts.dll
+3. Donwload MICrosoft ODBC DRiver 11 for sql server windows, if not installed: https://www.microsoft.com/en-us/download/confirmation.aspx?id=36434
+3. Restart apache and try phpinfo()

@@ -1,0 +1,27 @@
+LIST INSTALLED PACKAGES IN UBUNTU
+http://askubuntu.com/questions/17823/how-to-list-all-installed-packages
+
+Ubuntu 14.04 and above
+apt list --installed
+
+
+EDIT php.ini FILE
+----------------------
+vim /etc/php5/apache2/php.ini
+
+
+
+SETTING UP VIRTUAL HOSTS IN UBUNTU
+-----------------------------------
+https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts
+
+1. https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts
+2. sudo nano /etc/apache2/sites-available/example.com.conf
+Change the virtual hosts settings
+3. sudo a2ensite example.com.conf    (Enable site) 
+(a2dissite - disable - https://askubuntu.com/questions/258901/warning-documentroot-x-does-not-exist-when-starting-apache2)
+4. sudo service apache2 restart
+
+NOTE: Ended up making changes in 000-default, because could not find default DOCUMENT ROOT - /var/www/public, so added DOCUMENT ROOT - /var/www/html/crm-rc-public
+
+host file change.

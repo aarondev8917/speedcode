@@ -1,0 +1,94 @@
+http://unix.stackexchange.com/questions/88644/how-to-check-os-and-version-using-a-linux-command
+1. kernel version 
+    $ uname -a
+
+2. Distribution Information
+    $ lsb_release -a
+    $ cat /etc/lsb-release
+
+
+
+
+
+
+LIST INSTALLED PACKAGES IN REDHAT/CENTOS/FEDORE
+1. rpm -qa
+   OR
+  yum list installed
+ yum - YUM (Yellowdog Updater Modified) is an open source command-line as well as graphical based package management tool for RPM (RedHat Package Manager) based Linux systems 
+//https://www.tecmint.com/20-linux-yum-yellowdog-updater-modified-commands-for-package-mangement/
+
+rpm -qa | grep pg
+
+LIST INSTALLED PACKAGES IN UBUNTU
+http://askubuntu.com/questions/17823/how-to-list-all-installed-packages
+
+Ubuntu 14.04 and above
+apt list --installed
+
+
+
+imp packages:
+php-mysql
+php-mssql
+php-pgsql
+php-ldap
+php-mcrypt
+php
+httpd
+ yum install php53-mysql php53-pgsql php53-ldap php53-mcrypt wget
+yum install vim-enhanced
+
+To find error logs
+http://serverfault.com/questions/189205/where-can-i-find-apache-error-log-on-centos
+
+
+
+
+httpd.conf
+
+
+http://stackoverflow.com/questions/21551840/forbidden-you-dont-have-permission-to-access-on-this-server
+(/etc/httpd/conf/httpd.conf)
+apache <2.4
+Order allow,deny
+Allow from all
+
+apache > 2.4
+Require all granted
+
+EnableSendFile OFF
+
+
+
+FOR DOCKER CONTAINER
+-----------------------
+- yum install php53-*
+
+for php_mssql
+- yum install wget
+
+http://www.tecmint.com/how-to-enable-epel-repository-for-rhel-centos-6-5/
+check centos 5.9 64 bit
+
+
+//- wget http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+//- rpm -ivh epel-release-5-4.noarch.rpm
+//- yum install php-mssql
+
+STEPS TO INSTALL php-mssql
+----------------------------
+1. yum install epel-release
+2. yum repolist
+3. yum --enablerepo=epel install php-mssql
+
+
+
+
+
+To search for a text within a file:
+grep affiliate_logs_2017_03_11.log -e "Exit"
+Output: Exit
+
+
+grep -rn 'central-socket.log' -e 1533539877.594515 -C 20

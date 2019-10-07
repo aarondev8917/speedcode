@@ -1,0 +1,6 @@
+https://laracasts.com/discuss/channels/general-discussion/netbeans-exclude-env
+
+.env files are not shown by netbeans. To show them do the foll steps:
+1. Go to Tools -> Options -> Miscellaneous -> Files.
+2. ^(CVS|SCCS|vssver.?\.scc|#.*#|%.*%|_svn)$|~$|^\.(?!htaccess$).*$
+   Remove the last portion: .*

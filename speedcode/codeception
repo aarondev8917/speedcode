@@ -1,2 +1,6 @@
 https://packagist.org/packages/codeception/codeception
 https://codeception.com/quickstart
+
+*****
+codecept generate:cest acceptance First
+codecept generate:cest functional MyNewScenarioCest

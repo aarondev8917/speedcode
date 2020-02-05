@@ -9,3 +9,17 @@ codecept generate:cest functional MyNewScenarioCest
 https://codeception.com/docs/10-APITesting
 codecept generate:suite api
 codecept generate:cest api FlightBookingWithInternationalCurrencyCest
+
+
+-- Removed all cache files using rm -rf and package that were not getting deleted and ran using composer
+
+********************************
+composer require --dev codeception/module-phpbrowser codeception/module-yii2 codeception/module-rest codeception/module-asserts
+composer require --dev codeception/codeception
+php vendor/bin/codecept bootstrap
+
+
+acceptance test
+------------------
+php vendor/bin/codecept generate:cest acceptance First
+php vendor/bin/codecept run --steps

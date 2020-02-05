@@ -7,4 +7,5 @@ codecept generate:cest functional MyNewScenarioCest
 
 ************
 https://codeception.com/docs/10-APITesting
-codecept generate:suite api MyNewScenarioCest
+codecept generate:suite api
+codecept generate:cest api FlightBookingWithInternationalCurrencyCest

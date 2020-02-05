@@ -30,3 +30,16 @@ php vendor/bin/codecept run --steps api CheckInternationalMakePaymentCest.php
 
 PHP Fatal error:  Uncaught Error: Class 'Yii' not found
 https://stackoverflow.com/questions/45955411/codeception-error-class-yii-not-found-when-trying-to-run
+
+
+-----------------------------------------------------------------------------------------------------------------
+composer require --dev codeception/codeception:3.1.2
+Problem 1
+    - codeception/module-phpbrowser 1.0.0 requires codeception/codeception 4.0.x-dev | ^4.0 -> satisfiable by codeception/codeception[4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.x-dev] but these conflict with your requirements or minimum-stability.
+    - codeception/module-phpbrowser 1.0.0 requires codeception/codeception 4.0.x-dev | ^4.0 -> satisfiable by codeception/codeception[4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.x-dev] but these conflict with your requirements or minimum-stability.
+    - codeception/module-phpbrowser 1.0.0 requires codeception/codeception 4.0.x-dev | ^4.0 -> satisfiable by codeception/codeception[4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.x-dev] but these conflict with your requirements or minimum-stability.
+    - Installation request for codeception/module-phpbrowser ^1.0 -> satisfiable by codeception/module-phpbrowser[1.0.0].
+
+
+composer remove --dev codeception/module-phpbrowser
+

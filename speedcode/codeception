@@ -26,3 +26,7 @@ php vendor/bin/codecept run --steps
 
 
 php vendor/bin/codecept run --steps api CheckInternationalMakePaymentCest.php
+
+
+PHP Fatal error:  Uncaught Error: Class 'Yii' not found
+https://stackoverflow.com/questions/45955411/codeception-error-class-yii-not-found-when-trying-to-run

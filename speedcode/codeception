@@ -23,3 +23,6 @@ acceptance test
 ------------------
 php vendor/bin/codecept generate:cest acceptance First
 php vendor/bin/codecept run --steps
+
+
+php vendor/bin/codecept run --steps api CheckInternationalMakePaymentCest.php

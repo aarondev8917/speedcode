@@ -43,3 +43,11 @@ Problem 1
 
 composer remove --dev codeception/module-phpbrowser
 
+
+Problem 1
+    - codeception/module-rest 1.2.0 requires codeception/codeception ^4.0 -> satisfiable by codeception/codeception[4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.x-dev] but these conflict with your requirements or minimum-stability.
+    - codeception/module-rest 1.2.0 requires codeception/codeception ^4.0 -> satisfiable by codeception/codeception[4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.x-dev] but these conflict with your requirements or minimum-stability.
+    - codeception/module-rest 1.2.0 requires codeception/codeception ^4.0 -> satisfiable by codeception/codeception[4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.x-dev] but these conflict with your requirements or minimum-stability.
+    - Installation request for codeception/module-rest ^1.2 -> satisfiable by codeception/module-rest[1.2.0].
+
+ composer remove --dev codeception/module-rest

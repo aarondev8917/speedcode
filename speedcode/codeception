@@ -4,3 +4,7 @@ https://codeception.com/quickstart
 *****
 codecept generate:cest acceptance First
 codecept generate:cest functional MyNewScenarioCest
+
+************
+https://codeception.com/docs/10-APITesting
+codecept generate:suite api MyNewScenarioCest

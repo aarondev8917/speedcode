@@ -69,3 +69,10 @@ sudo apt-get install php5-gd
 
 
 ** acceptance.suit.yml --- change the url of phpbrowser
+
+
+
+
+VVVVI
+composer remove --dev codegyre/robo
+- updated the relevant symfony packages as well.

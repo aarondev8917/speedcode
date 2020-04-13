@@ -1,0 +1,11 @@
+https://medium.com/@isaacjoe/best-way-to-install-and-use-nvm-on-mac-e3a3f6bc494d
+
+1. curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+2. sudo nano ~/.bashrc
+   - Add the following lines:
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+3. source ~/.bashrc
+4. nvm --version
+5. nvm install v10.13.0
+6. nm use v10.13.0
